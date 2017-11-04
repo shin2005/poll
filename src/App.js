@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 align = "center" className="Twin-kle">Twin-kle is great!</h1>
+          <h1 align = "center" className="Twin-kle">Twin-kle is amazing!</h1>
         </header>
       </div>
     );
