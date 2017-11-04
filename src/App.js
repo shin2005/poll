@@ -8,7 +8,7 @@ class App extends Component {
       <div className="App">
         <header style={{textAlign: 'center'}} className="App-header">
           <div style={{
-            backgroundColor: 'black'
+            backgroundColor: 'magenta'
           }}>
           <h1 className="Twin-kle">Twin-kle is amazing!</h1>
           <h2>hi</h2>
