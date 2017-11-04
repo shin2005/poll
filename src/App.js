@@ -6,8 +6,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 align = "center" className="Twin-kle">Twin-kle is amazing!</h1>
+        <header style={{textAlign: 'center'}} className="App-header">
+          <h1 className="Twin-kle">Twin-kle is amazing!</h1>
+          <h2>hi</h2>
         </header>
       </div>
     );
