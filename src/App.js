@@ -15,8 +15,8 @@ class App extends Component {
           </div>
         </header>
         <div>
-          <h1>
-            How's life? Mine is bad lol
+          <h1 style={{textAlign: 'center'}}>
+            Twin-kle is an English academy spotted in Seoul, a city in South Korea.
           </h1>
         </div>
       </div>
