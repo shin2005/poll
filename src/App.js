@@ -7,16 +7,11 @@ class App extends Component {
     return (
       <div className="App">
         <header style={{textAlign: 'center'}} className="App-header">
-          <div style={{
-            backgroundColor: 'magenta'
-          }}>
           <h1 className="Twin-kle">Twin-kle is amazing!</h1>
-          <h2>hi</h2>
-          </div>
         </header>
         <div>
           <h1 style={{textAlign: 'center'}}>
-            Twin-kle is an English academy spotted in Seoul, a city in South Korea.
+            Twin-kle is an English academy located in Seoul!
           </h1>
         </div>
       </div>
