@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
         <header style={{textAlign: 'left'}} className="App-header">
-          <h1 className="Twin-kle" style="color= white">Twin-kle is amazing!</h1>
+          <h1 className="Twin-kle" color= "white">Twin-kle is amazing!</h1>
         </header>
         <div>
           <h1 style={{textAlign: 'center'}}>
