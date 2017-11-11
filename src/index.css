@@ -1,6 +1,11 @@
+head{
+  margin: 1;
+  font-family: fantasy;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  color:mediumseagreen
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url(./vote.jpg) ;
+  background-repeat: no-repeat;
+  background-size: 1536px 864px;
 }
