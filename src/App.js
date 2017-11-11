@@ -56,6 +56,14 @@ class App extends Component {
                 checked={checked === 'Other'}
                 onClick={() => this.setState({checked: 'Other'})}
               />
+              React
+            </label>
+            <label>
+              <input
+                type="radio"
+                checked={checked === 'Other'}
+                onClick={() => this.setState({checked: 'Other'})}
+              />
               Other
             </label>
             <button onClick={
