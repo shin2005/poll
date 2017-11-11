@@ -13,7 +13,7 @@ class App extends Component {
     const {checked} = this.state
     return (
       <div className="App">
-        <legend>What is your JavaScript library of choice?</legend>
+        <p>What is your JavaScript library of choice?</p>
         <form id="form1" name="form1">
            <label>
              <input
