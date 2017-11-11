@@ -53,8 +53,8 @@ class App extends Component {
             <label>
               <input
                 type="radio"
-                checked={checked === 'Other'}
-                onClick={() => this.setState({checked: 'Other'})}
+                checked={checked === 'React'}
+                onClick={() => this.setState({checked: 'React'})}
               />
               React
             </label>
