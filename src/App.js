@@ -109,7 +109,7 @@ class App extends Component {
           className={`progress-bar bg-${color}`}
           style={{width: `${percentage}%`}}
         >
-          {label}
+          {label} ({Math.floor(percentage)}%)
         </div>
       )
     })
