@@ -105,7 +105,7 @@ class App extends Component {
       const color = colors[index % 5]
       return (
         <div
-          key={index + element}
+          key={label}
           className={`progress-bar bg-${color}`}
           style={{width: `${percentage}%`}}
         >
