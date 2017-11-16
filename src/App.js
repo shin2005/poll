@@ -41,8 +41,8 @@ class App extends Component {
             <label>
               <input
                 type="radio"
-                checked={votedItem === 'jQuery'}
-                onClick={() => this.setState({votedItem: 'jQuery'})}
+                checked={votedItem === 'JQ'}
+                onClick={() => this.setState({votedItem: 'JQ'})}
               />
               jQuery
             </label>
