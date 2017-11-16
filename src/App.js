@@ -41,8 +41,8 @@ class App extends Component {
             <label>
               <input
                 type="radio"
-                checked={votedItem === 'jQuery'}
-                onClick={() => this.setState({votedItem: 'jQuery'})}
+                checked={votedItem === 'JQ'}
+                onClick={() => this.setState({votedItem: 'JQ'})}
               />
               jQuery
             </label>
@@ -109,7 +109,7 @@ class App extends Component {
           className={`progress-bar bg-${color}`}
           style={{width: `${percentage}%`}}
         >
-          {label}
+          {label} ({Math.floor(percentage)}%)
         </div>
       )
     })
