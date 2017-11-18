@@ -4,7 +4,7 @@ const routes = require('./routes');
 const cors = require('cors');
 const app = express();
 const mongoose = require('mongoose');
-const mongoDB = 'mongodb://localhost/lolpoll';
+const mongoDB = 'mongodb://localhost/local';
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 
