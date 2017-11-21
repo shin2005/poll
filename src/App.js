@@ -1,30 +1,23 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import {getVote, postVote} from './redux/actions/VoteActions'
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      checked: null,
-      dummyData: {
-        Mootools: 5,
-        Prototype: 3,
-        JQ: 13,
-        Spry: 4,
-        Other: 10
-      }
-    }
+  state = {
+    votedItem: null,
+  }
+
+  componentWillMount() {
+    const {getVote} = this.props
+    getVote('favorite_js_lib')
   }
 
   render() {
-    const {checked, dummyData: {Mootools, Prototype, JQ, Spry, Other}} = this.state
-    const mootoolsPercentage = Mootools * 100 / (Mootools + Prototype + JQ + Spry + Other)
-    const prototypePercentage = Prototype * 100 / (Mootools + Prototype + JQ + Spry + Other)
-    const jqueryPercentage = JQ * 100 / (Mootools + Prototype + JQ + Spry + Other)
-    const spryPercentage = Spry * 100 / (Mootools + Prototype + JQ + Spry + Other)
-    const otherPercentage = Other * 100 / (Mootools + Prototype + JQ + Spry + Other)
+    const {votedItem} = this.state
     return (
       <div className="App">
+        <h1>hey guys lets add some different polls here as well - Alex LOL</h1>
         <h1 align = "center" id="first_h1">This is a website for making polls and voting for them.</h1>
         <h3 align = "center">Go on, try voting for this sample poll!</h3>
         <fieldset>
@@ -33,87 +26,98 @@ class App extends Component {
             <label>
               <input
                 type="radio"
-                checked={checked === 'Mootools'}
-                onClick={() => this.setState({checked: 'Mootools'})}
+                checked={votedItem === 'Mootools'}
+                onClick={() => this.setState({votedItem: 'Mootools'})}
               />
               Mootools
             </label>
             <label>
               <input
                 type="radio"
-                checked={checked === 'Prototype'}
-                onClick={() => this.setState({checked: 'Prototype'})}
+                checked={votedItem === 'Prototype'}
+                onClick={() => this.setState({votedItem: 'Prototype'})}
               />
               Prototype
             </label>
             <label>
               <input
                 type="radio"
-                checked={checked === 'jQuery'}
-                onClick={() => this.setState({checked: 'jQuery'})}
+                checked={votedItem === 'JQ'}
+                onClick={() => this.setState({votedItem: 'JQ'})}
               />
               jQuery
             </label>
             <label>
               <input
                 type="radio"
-                checked={checked === 'Spry'}
-                onClick={() => this.setState({checked: 'Spry'})}
+                checked={votedItem === 'Spry'}
+                onClick={() => this.setState({votedItem: 'Spry'})}
               />
               Spry
             </label>
             <label>
               <input
                 type="radio"
-                checked={checked === 'React'}
-                onClick={() => this.setState({checked: 'React'})}
+                checked={votedItem === 'React'}
+                onClick={() => this.setState({votedItem: 'React'})}
               />
               React
             </label>
             <label>
               <input
                 type="radio"
-                checked={checked === 'Other'}
-                onClick={() => this.setState({checked: 'Other'})}
+                checked={votedItem === 'Other'}
+                onClick={() => this.setState({votedItem: 'Other'})}
               />
               Other
             </label>
-            <button onClick={
-              (event) => {
-                event.preventDefault() // to prevent default behavior of form submission. see what happens if you remove this line
-                alert(`Your vote was submitted! You voted ${checked}`)}
-              }
-            >
+            <button disabled={!votedItem} onClick={this.handleVote}>
               Vote
             </button>
           </form>
         </fieldset>
         <div className="progress">
-          <div className="progress-bar" role="progressbar" style={{width: `${mootoolsPercentage}%`}} aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-          <div className="progress-bar bg-success" role="progressbar" style={{width: `${prototypePercentage}%`}} aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-          <div className="progress-bar bg-info" role="progressbar" style={{width: `${jqueryPercentage}%`}} aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-          <div className="progress-bar bg-warning" role="progressbar" style={{width: `${spryPercentage}%`}} aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-          <div className="progress-bar bg-danger" role="progressbar" style={{width: `${otherPercentage}%`}} aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+          {this.renderProgressBars()}
         </div>
-
-        <div class="progress">
-          <div class="progress-bar bg-success" role="progressbar" style={{width: `${mootoolsPercentage}%`}} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <div class="progress">
-            <div class="progress-bar bg-info" role="progressbar" style={{width: `${prototypePercentage}%`}} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <div class="progress">
-            <div class="progress-bar bg-warning" role="progressbar" style={{width: `${jqueryPercentage}%`}} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <div class="progress">
-            <div class="progress-bar bg-danger" role="progressbar" style={{width: `${spryPercentage}%`}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
-          <div class="progress">
-            <div class="progress-bar bg-danger" role="progressbar" style={{width: `${otherPercentage}%`}} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-          </div>
       </div>
     );
   }
+
+  handleVote = async(event) => {
+    event.preventDefault()
+    const {votedItem} = this.state
+    const {postVote} = this.props
+    await postVote(votedItem)
+    alert(`Your vote was submitted! You voted ${votedItem}`)
+  }
+
+  renderProgressBars = () => {
+    const {votes} = this.props
+    const voteArray = [];
+    let totalVotes = 0
+    const colors = ['success', 'warning', 'info', 'danger', 'primary']
+    for (let key in votes) {
+      if (votes[key] > 0) voteArray.push({label: key, voteCount: votes[key]})
+      totalVotes += votes[key]
+    }
+    return voteArray.map((element, index) => {
+      const percentage = (element.voteCount * 100) / totalVotes
+      const {label} = element
+      const color = colors[index % 5]
+      return (
+        <div
+          key={label}
+          className={`progress-bar bg-${color}`}
+          style={{width: `${percentage}%`}}
+        >
+          {label} ({Math.floor(percentage)}%)
+        </div>
+      )
+    })
+  }
 }
 
-export default App;
+export default connect(
+  state => ({votes: state.VoteReducer.votes}),
+  {getVote, postVote}
+)(App);
