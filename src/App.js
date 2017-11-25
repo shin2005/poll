@@ -80,7 +80,7 @@ class App extends Component {
         <div className="progress">
           {this.renderProgressBars()}
         </div>
-        <button onClick={this.createPoll}>
+        <button className="create_poll" onClick={this.createPoll}>
           Create New Poll
         </button>
         {polls.map((poll, index) => <p key={index + poll}>{poll}</p>)}
