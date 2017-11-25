@@ -7,7 +7,7 @@ class App extends Component {
   state = {
     votedItem: null,
     hello: false,
-    createdPolls : 0
+    polls: []
   }
 
   componentWillMount() {
@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   render() {
-    const {hello, votedItem} = this.state
+    const {polls, votedItem} = this.state
     return (
       <div className="App">
         <h1 align = "center" id="first_h1">This is a website for making polls and voting for them.</h1>
@@ -83,7 +83,7 @@ class App extends Component {
         <button onClick={this.createPoll}>
           Create New Poll
         </button>
-        {hello && <p>New Poll placeholder</p>}
+        {polls.map((poll, index) => <p key={index + poll}>{poll}</p>)}
       </div>
     );
   }
@@ -98,8 +98,10 @@ class App extends Component {
 
   createPoll = async(event) => {
     event.preventDefault()
-    this.setState({hello: true})
-    this.setState({createdPolls: 1})    
+    this.setState(state => ({
+      hello: true,
+      polls: state.polls.concat(['New Poll placeholder'])
+    }))
   }
 
   renderProgressBars = () => {
