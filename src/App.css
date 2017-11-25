@@ -8,12 +8,12 @@ h3{
 }
 
 h1 {
-  color: black
+  color: rgb(230, 0, 255);
 }
 
 *{
-  background-color: white
+  background-color: gray
 }
 label{
-  color: rgb(0, 0, 0)
+  color: black
 }
