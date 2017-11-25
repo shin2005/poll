@@ -1,6 +1,4 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux'
-import {getVote, postVote} from './redux/actions/VoteActions'
+import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
@@ -27,52 +25,57 @@ class App extends Component {
             <label>
               <input
                 type="radio"
-                checked={votedItem === 'Mootools'}
-                onClick={() => this.setState({votedItem: 'Mootools'})}
+                checked={checked === 'Mootools'}
+                onClick={() => this.setState({checked: 'Mootools'})}
               />
               Mootools
             </label>
             <label>
               <input
                 type="radio"
-                checked={votedItem === 'Prototype'}
-                onClick={() => this.setState({votedItem: 'Prototype'})}
+                checked={checked === 'Prototype'}
+                onClick={() => this.setState({checked: 'Prototype'})}
               />
               Prototype
             </label>
             <label>
               <input
                 type="radio"
-                checked={votedItem === 'JQ'}
-                onClick={() => this.setState({votedItem: 'JQ'})}
+                checked={checked === 'jQuery'}
+                onClick={() => this.setState({checked: 'jQuery'})}
               />
               jQuery
             </label>
             <label>
               <input
                 type="radio"
-                checked={votedItem === 'Spry'}
-                onClick={() => this.setState({votedItem: 'Spry'})}
+                checked={checked === 'Spry'}
+                onClick={() => this.setState({checked: 'Spry'})}
               />
               Spry
             </label>
             <label>
               <input
                 type="radio"
-                checked={votedItem === 'React'}
-                onClick={() => this.setState({votedItem: 'React'})}
+                checked={checked === 'React'}
+                onClick={() => this.setState({checked: 'Reactgit'})}
               />
               React
             </label>
             <label>
               <input
                 type="radio"
-                checked={votedItem === 'Other'}
-                onClick={() => this.setState({votedItem: 'Other'})}
+                checked={checked === 'Other'}
+                onClick={() => this.setState({checked: 'Other'})}
               />
               Other
             </label>
-            <button disabled={!votedItem} onClick={this.handleVote}>
+            <button onClick={
+              (event) => {
+                event.preventDefault() // to prevent default behavior of form submission. see what happens if you remove this line
+                alert(`Your vote was submitted! You voted ${checked}`)}
+              }
+            >
               Vote
             </button>
           </form>
@@ -128,7 +131,4 @@ class App extends Component {
   }
 }
 
-export default connect(
-  state => ({votes: state.VoteReducer.votes}),
-  {getVote, postVote}
-)(App);
+export default App;
