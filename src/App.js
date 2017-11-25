@@ -6,6 +6,7 @@ import './App.css';
 class App extends Component {
   state = {
     votedItem: null,
+    hello: false
   }
 
   componentWillMount() {
@@ -14,10 +15,9 @@ class App extends Component {
   }
 
   render() {
-    const {votedItem} = this.state
+    const {hello, votedItem} = this.state
     return (
       <div className="App">
-        <h1>hey guys lets add some different polls here as well - Alex LOL</h1>
         <h1 align = "center" id="first_h1">This is a website for making polls and voting for them.</h1>
         <h3 align = "center">Go on, try voting for this sample poll!</h3>
         <fieldset>
@@ -79,6 +79,10 @@ class App extends Component {
         <div className="progress">
           {this.renderProgressBars()}
         </div>
+        <button onClick={this.createPoll}>
+          Create New Poll
+        </button>
+        {hello && <h1>hello world</h1>}
       </div>
     );
   }
@@ -89,6 +93,12 @@ class App extends Component {
     const {postVote} = this.props
     await postVote(votedItem)
     alert(`Your vote was submitted! You voted ${votedItem}`)
+  }
+
+  createPoll = async(event) => {
+    event.preventDefault()
+    this.setState({hello: true})
+    alert('This is not made yet!')
   }
 
   renderProgressBars = () => {
