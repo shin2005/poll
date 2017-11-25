@@ -79,9 +79,9 @@ class App extends Component {
         <div className="progress">
           {this.renderProgressBars()}
         </div>
-        <button onClick={this.createPoll}>
-          Create New Poll
-        </button>
+          <button onClick={this.createPoll}>
+            Create New Poll
+          </button>
         {hello && <h1>hello world</h1>}
       </div>
     );
