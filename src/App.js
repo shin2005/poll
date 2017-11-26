@@ -6,7 +6,6 @@ import './App.css';
 class App extends Component {
   state = {
     votedItem: null,
-    hello: false,
     polls: []
   }
 
@@ -72,7 +71,7 @@ class App extends Component {
               />
               Other
             </label>
-            <button disabled={!votedItem} onClick={this.handleVote}>
+            <button disabled={!votedItem} onClick={this.handleVote} className="submit_vote">
               Vote
             </button>
           </form>
@@ -99,7 +98,6 @@ class App extends Component {
   createPoll = async(event) => {
     event.preventDefault()
     this.setState(state => ({
-      hello: true,
       polls: state.polls.concat(['New Poll placeholder'])
     }))
   }
