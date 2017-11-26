@@ -72,7 +72,7 @@ class App extends Component {
               />
               Other
             </label>
-            <button disabled={!votedItem} onClick={this.handleVote}>
+            <button disabled={!votedItem} onClick={this.handleVote} className="submit_vote">
               Vote
             </button>
           </form>
