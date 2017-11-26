@@ -8,8 +8,8 @@ This is the first real software project by Twinkle Programming Class students Gu
 
 1. clone the project
 2. after cloning, get into the project folder and run ```npm install``` to install all the dependencies.
-3. once all dependencies are installed, run ```npm run dev-api``` (make sure you have installed mongodb) this is your api development server
-4. run ```npm run dev-content``` this is your development content server
+3. once all dependencies are installed, run ```npm run dev-api``` (make sure you have installed mongodb) this is the api development server
+4. run ```npm run dev-content``` this is the content development server
 
 ## How to contribute (follow this for now, I'll teach you a more proper way to contribute later)
 
