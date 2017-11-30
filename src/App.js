@@ -79,6 +79,68 @@ class App extends Component {
         <div className="progress">
           {this.renderProgressBars()}
         </div>
+
+        <fieldset>
+          <legend>What is your favorite game?</legend>
+          <form id="form1" name="form1">
+            <label>
+              <input
+                type="radio"
+                checked={votedItem === 'lol'}
+                onClick={() => this.setState({votedItem: 'lol'})}
+              />
+              lol
+            </label>
+            <label>
+              <input
+                type="radio"
+                checked={votedItem === 'overwatch'}
+                onClick={() => this.setState({votedItem: 'overwatch'})}
+              />
+              overwatch
+            </label>
+            <label>
+              <input
+                type="radio"
+                checked={votedItem === 'bg'}
+                onClick={() => this.setState({votedItem: 'bg'})}
+              />
+              bg
+            </label>
+            <label>
+              <input
+                type="radio"
+                checked={votedItem === 'starcraft'}
+                onClick={() => this.setState({votedItem: 'starcraft'})}
+              />
+              starcraft
+            </label>
+            <label>
+              <input
+                type="radio"
+                checked={votedItem === 'sudden_attack'}
+                onClick={() => this.setState({votedItem: 'sudden_attack'})}
+              />
+              sudden attack
+            </label>
+            <label>
+              <input
+                type="radio"
+                checked={votedItem === 'other'}
+                onClick={() => this.setState({votedItem: 'other'})}
+              />
+              Other
+            </label>
+            <button disabled={!votedItem} onClick={this.handleVote}>
+              Vote
+            </button>
+          </form>
+        </fieldset>
+
+
+        <div className="progress">
+          {this.renderProgressBars2()}
+        </div>
         <button onClick={this.createPoll}>
           Create New Poll
         </button>
@@ -114,6 +176,31 @@ class App extends Component {
       const percentage = (element.voteCount * 100) / totalVotes
       const {label} = element
       const color = colors[index % 5]
+      return (
+        <div
+          key={label}
+          className={`progress-bar bg-${color}`}
+          style={{width: `${percentage}%`}}
+        >
+          {label} ({Math.floor(percentage)}%)
+        </div>
+      )
+    })
+  }
+
+  renderProgressBars2 = () => {
+    const {votes2} = this.props
+    const voteArray2 = [];
+    let totalVotes2 = 0
+    const colors2 = ['success', 'warning', 'info', 'danger', 'primary']
+    for (let key in votes) {
+      if (votes[key] > 0) voteArray.push({label: key, voteCount: votes[key]})
+      totalVotes += votes[key]
+    }
+    return voteArray.map((element, index) => {
+      const percentage2 = (element.voteCount * 100) / totalVotes
+      const {label2} = element
+      const color2 = colors[index % 5]
       return (
         <div
           key={label}
