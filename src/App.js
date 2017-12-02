@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 align = "center" id="first_h1">This is a website for making polls and voting for them.</h1>
-        <h2 align = "center">Vote for the best Poll!</h2>
+        <h2 align = "center">Vote for the best Poll</h2>
         <fieldset>
           <legend>What is your JavaScript library of choice?</legend>
           <form id="form1" name="form1">
