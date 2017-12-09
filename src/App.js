@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="topnav" id="myTopnav">
-          <a class="active">Home</a>
+          <a href ="home">Home</a>
           <a href="trend">Trending</a>
           <a href="top10">Top 10</a>
           <a href="settings">Settings</a>
