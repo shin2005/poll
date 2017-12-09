@@ -18,6 +18,12 @@ class App extends Component {
     const {polls, votedItem} = this.state
     return (
       <div className="App">
+        <div class="topnav" id="myTopnav">
+          <a class="active">Home</a>
+          <a href="trend">Trending</a>
+          <a href="top10">Top 10</a>
+          <a href="settings">Settings</a>
+        </div>
         <h1 align = "center" id="first_h1">This is a website for making polls and voting for them!</h1>
         <h2 align = "center">Today's poll!</h2>
         <fieldset>
