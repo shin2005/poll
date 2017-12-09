@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {getVote, postVote} from './redux/actions/VoteActions'
+import ProgressBar from './components/ProgressBar'
 import './App.css';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
   }
 
   render() {
+    const {votes} = this.props
     const {polls, votedItem} = this.state
     return (
       <div className="App">
@@ -27,7 +29,7 @@ class App extends Component {
         <h1 align = "center" id="first_h1">This is a website for making polls and voting for them!</h1>
         <h2 align = "center">Today's poll!</h2>
         <fieldset>
-          <legend>What is your JavaScript library of choice?</legend>
+          <legend>What is your JavaScript library of choice? Feel Free To Vote AnyThing you Want :)</legend>
           <form id="form1" name="form1">
             <label>
               <input
@@ -82,9 +84,9 @@ class App extends Component {
             </button>
           </form>
         </fieldset>
-        <div className="progress">
-          {this.renderProgressBars()}
-        </div>
+        <ProgressBar
+          votes={votes}
+        />
         <button className="create_poll" onClick={this.createPoll}>
           Create New Poll
         </button>
@@ -106,31 +108,6 @@ class App extends Component {
     this.setState(state => ({
       polls: state.polls.concat(['New Poll placeholder'])
     }))
-  }
-
-  renderProgressBars = () => {
-    const {votes} = this.props
-    const voteArray = [];
-    let totalVotes = 0
-    const colors = ['success', 'warning', 'info', 'danger', 'primary']
-    for (let key in votes) {
-      if (votes[key] > 0) voteArray.push({label: key, voteCount: votes[key]})
-      totalVotes += votes[key]
-    }
-    return voteArray.map((element, index) => {
-      const percentage = (element.voteCount * 100) / totalVotes
-      const {label} = element
-      const color = colors[index % 5]
-      return (
-        <div
-          key={label}
-          className={`progress-bar bg-${color}`}
-          style={{width: `${percentage}%`}}
-        >
-          {label} ({Math.floor(percentage)}%)
-        </div>
-      )
-    })
   }
 }
 
