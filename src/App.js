@@ -18,67 +18,65 @@ class App extends Component {
     const {polls, votedItem} = this.state
     return (
       <div className="App" style={{
-        backgroundImage: ""
       }}
-        >
-        <h1 align = "center" id="first_h1">This is a website for making polls and voting for them.</h1>
-        <h2 align = "center">Today's poll!</h2>
-        <fieldset>
-          <legend>What is your JavaScript library of choice? Feel Free To Vote AnyThing you Want :)</legend>
-          <form id="form1" name="form1">
-            <label>
-              <input
-                type="radio"
-                checked={votedItem === 'Mootools'}
-                onClick={() => this.setState({votedItem: 'Mootools'})}
-              />
-              Mootools
-            </label>
-            <label>
-              <input
-                type="radio"
-                checked={votedItem === 'Prototype'}
-                onClick={() => this.setState({votedItem: 'Prototype'})}
-              />
-              Prototype
-            </label>
-            <label>
-              <input
-                type="radio"
-                checked={votedItem === 'JQ'}
-                onClick={() => this.setState({votedItem: 'JQ'})}
-              />
-              jQuery
-            </label>
-            <label>
-              <input
-                type="radio"
-                checked={votedItem === 'Spry'}
-                onClick={() => this.setState({votedItem: 'Spry'})}
-              />
-              Spry
-            </label>
-            <label>
-              <input
-                type="radio"
-                checked={votedItem === 'React'}
-                onClick={() => this.setState({votedItem: 'React'})}
-              />
-              React
-            </label>
-            <label>
-              <input
-                type="radio"
-                checked={votedItem === 'Other'}
-                onClick={() => this.setState({votedItem: 'Other'})}
-              />
-              Other
-            </label>
-            <button disabled={!votedItem} onClick={this.handleVote} className="submit_vote">
-              Vote
-            </button>
-          </form>
-        </fieldset>
+          <h1 align = "center" id="first_h1">This is a website for making polls and voting for them.</h1>
+          <h2 align = "center">Today's poll!</h2>
+          <fieldset>
+            <legend>What is your JavaScript library of choice? Feel Free To Vote AnyThing you Want :)</legend>
+            <form id="form1" name="form1">
+              <label>
+                <input
+                  type="radio"
+                  checked={votedItem === 'Mootools'}
+                  onClick={() => this.setState({votedItem: 'Mootools'})}
+                />
+                Mootools
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  checked={votedItem === 'Prototype'}
+                  onClick={() => this.setState({votedItem: 'Prototype'})}
+                />
+                Prototype
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  checked={votedItem === 'JQ'}
+                  onClick={() => this.setState({votedItem: 'JQ'})}
+                />
+                jQuery
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  checked={votedItem === 'Spry'}
+                  onClick={() => this.setState({votedItem: 'Spry'})}
+                />
+                Spry
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  checked={votedItem === 'React'}
+                  onClick={() => this.setState({votedItem: 'React'})}
+                />
+                React
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  checked={votedItem === 'Other'}
+                  onClick={() => this.setState({votedItem: 'Other'})}
+                />
+                Other
+              </label>
+              <button disabled={!votedItem} onClick={this.handleVote} className="submit_vote">
+                Vote
+              </button>
+            </form>
+          </fieldset>
         <div className="progress">
           {this.renderProgressBars()}
         </div>

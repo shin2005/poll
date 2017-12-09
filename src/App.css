@@ -13,9 +13,6 @@ h1 {
   background-color:white;
 }
 
-*{
-
-} 
 label{
   color: rgb(0, 0, 0)
 }
@@ -23,11 +20,13 @@ label{
 body {
   margin: 0;
   padding: 0;
+  background-color: magenta;
 }
 
 .create_poll {
   background: #ffffff;
   padding: 13px 26px;
+  border-radius: 30px;
   -webkit-border-radius: 30px;
   color: #000000;
   font-size: 24px;
