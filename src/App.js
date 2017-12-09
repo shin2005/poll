@@ -18,7 +18,7 @@ class App extends Component {
     const {polls, votedItem} = this.state
     return (
       <div className="App">
-        <h1 align = "center" id="first_h1">This is a website for making polls and voting for them.</h1>
+        <h1 align = "center" id="first_h1">This is a website for making polls and voting for them!</h1>
         <h2 align = "center">Today's poll!</h2>
         <fieldset>
           <legend>What is your JavaScript library of choice?</legend>
