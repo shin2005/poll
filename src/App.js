@@ -6,8 +6,7 @@ import './App.css';
 class App extends Component {
   state = {
     votedItem: null,
-    hello: false,
-    createdPolls : 0
+    polls: []
   }
 
   componentWillMount() {
@@ -16,13 +15,16 @@ class App extends Component {
   }
 
   render() {
-    const {hello, votedItem} = this.state
+    const {polls, votedItem} = this.state
     return (
-      <div className="App">
+      <div className="App" style={{
+        backgroundImage: ""
+      }}
+        >
         <h1 align = "center" id="first_h1">This is a website for making polls and voting for them.</h1>
         <h2 align = "center">Today's poll!</h2>
         <fieldset>
-          <legend>What is your JavaScript library of choice?</legend>
+          <legend>What is your JavaScript library of choice? Feel Free To Vote AnyThing you Want :)</legend>
           <form id="form1" name="form1">
             <label>
               <input
@@ -72,7 +74,7 @@ class App extends Component {
               />
               Other
             </label>
-            <button disabled={!votedItem} onClick={this.handleVote}>
+            <button disabled={!votedItem} onClick={this.handleVote} className="submit_vote">
               Vote
             </button>
           </form>
@@ -80,10 +82,10 @@ class App extends Component {
         <div className="progress">
           {this.renderProgressBars()}
         </div>
-        <button onClick={this.createPoll}>
+        <button className="create_poll" onClick={this.createPoll}>
           Create New Poll
         </button>
-        {hello && <p>New Poll placeholder</p>}
+        {polls.map((poll, index) => <p key={index + poll}>{poll}</p>)}
       </div>
     );
   }
@@ -98,8 +100,9 @@ class App extends Component {
 
   createPoll = async(event) => {
     event.preventDefault()
-    this.setState({hello: true})
-    this.setState({createdPolls: 1})    
+    this.setState(state => ({
+      polls: state.polls.concat(['New Poll placeholder'])
+    }))
   }
 
   renderProgressBars = () => {
