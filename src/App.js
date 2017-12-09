@@ -21,7 +21,7 @@ class App extends Component {
     const {polls, votedItem} = this.state
     return (
       <div className="App">
-        <div class="topnav" id="myTopnav">
+        <div className="topnav" id="myTopnav">
           <a class="active">Home</a>
           <a href="trend">Trending</a>
           <a href="top10">Top 10</a>
@@ -37,7 +37,7 @@ class App extends Component {
           onClickSpry={() => this.setState({votedItem: 'Spry'})} 
           onClickReact={() => this.setState({votedItem: 'React'})} 
           onClickOther={() => this.setState({votedItem: 'Other'})}
-          votedItem
+          votedItem={votedItem}
         />
         <ProgressBar
           votes={votes}
