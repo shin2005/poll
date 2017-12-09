@@ -19,11 +19,14 @@ class App extends Component {
     const {votes} = this.props
     const {polls, votedItem} = this.state
     return (
-      <div className="App" style={{
-        backgroundImage: ""
-      }}
-        >
-        <h1 align = "center" id="first_h1">This is a website for making polls and voting for them.</h1>
+      <div className="App">
+        <div class="topnav" id="myTopnav">
+          <a class="active">Home</a>
+          <a href="trend">Trending</a>
+          <a href="top10">Top 10</a>
+          <a href="settings">Settings</a>
+        </div>
+        <h1 align = "center" id="first_h1">This is a website for making polls and voting for them!</h1>
         <h2 align = "center">Today's poll!</h2>
         <fieldset>
           <legend>What is your JavaScript library of choice? Feel Free To Vote AnyThing you Want :)</legend>
