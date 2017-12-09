@@ -6,6 +6,7 @@
     "axios": "^0.17.1",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "mongodb": "^2.2.33",
     "mongoose": "^4.13.4",
     "morgan": "^1.9.0",
     "path": "^0.12.7",
@@ -18,12 +19,12 @@
   },
   "scripts": {
     "dev-api": "nodemon api/index.js",
-    "api": "sudo forever -o api_out.log -e api_err.log start api/index.js",
-    "stopapi": "sudo forever stop api/index.js",
-    "start": "react-scripts start",
+    "api-server": "sudo forever -o api_out.log -e api_err.log start api/index.js",
+    "stop-api": "sudo forever stop api/index.js",
+    "dev-content": "react-scripts start",
     "build": "react-scripts build",
-    "server": "sudo forever -o out.log -e err.log start index.js",
-    "stop-server": "sudo forever stop index.js",
+    "content-server": "sudo forever -o out.log -e err.log start index.js",
+    "stop-content": "sudo forever stop index.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

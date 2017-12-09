@@ -4,16 +4,37 @@
 }
 
 h3{
-  color: black
+  color: black;
+  background-color:white;
 }
 
 h1 {
-  color: black
+  color: black;
+  background-color:white;
 }
 
 *{
-  background-color: white
-}
+
+} 
 label{
   color: rgb(0, 0, 0)
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.create_poll {
+  background: #ffffff;
+  padding: 13px 26px;
+  -webkit-border-radius: 30px;
+  color: #000000;
+  font-size: 24px;
+  font-family: helvetica, serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+.create_poll:hover {
+  background: #979797;
 }
