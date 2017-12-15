@@ -21,7 +21,11 @@ class App extends Component {
         backgroundImage: ""
       }}
         >
-        <h1 align = "center" id="first_h1">This is a website for making polls and voting for them.</h1>
+        <h1
+          className="H1_of_app.js" 
+            align = "center" id="first_h1">
+          This is a website for making polls and voting for them.
+        </h1>
         <h2 align = "center">Today's poll!</h2>
         <fieldset>
           <legend>What is your JavaScript library of choice? Feel Free To Vote AnyThing you Want :)</legend>

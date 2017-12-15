@@ -38,3 +38,6 @@ body {
 .create_poll:hover {
   background: #979797;
 }
+.H1_of_app.js {
+  font-family: helvetica, serif;
+}
