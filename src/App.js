@@ -27,7 +27,9 @@ class App extends Component {
           <a href="top10">Top 10</a>
           <a href="settings">Settings</a>
         </div>
-        <h1 align="center" id="first_h1">
+        <h1 
+          className="h1appjs"
+            align="center" id="first_h1">
           This is a website for making polls and voting for them!
         </h1>
         <h2 align="center">Today's poll!</h2>
