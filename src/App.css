@@ -4,18 +4,15 @@
 }
 
 h3{
-  color: black;
-  background-color:white;
+  color: rgb(195, 0, 255);
+  background-color:rgb(0, 212, 240);
 }
 
 h1 {
-  color: black;
-  background-color:white;
+  color: rgb(0, 183, 255);
+  background-color:rgb(6, 40, 233);
 }
 
-*{
-
-} 
 label{
   color: rgb(0, 0, 0)
 }
