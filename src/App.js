@@ -25,6 +25,7 @@ class App extends Component {
           <a href="home">Home</a>
           <a href="trend">Now Trending on LolPoll</a>
           <a href="top10">Top 10</a>
+          <a href="editors choice">Editor`s Choice</a>
           <a href="settings">Settings</a>
         </div>
         <h1 
