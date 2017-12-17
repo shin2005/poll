@@ -46,7 +46,7 @@ class App extends Component {
         />
         <ProgressBar votes={votes} />
         <button className="create_poll" onClick={this.createPoll}>
-          Create New Poll
+          Create New Poll(Under Developement)
         </button>
         {polls.map((poll, index) => <p key={index + poll}>{poll}</p>)}
         <img src="http://www.free-icons-download.net/images/tick-pencil-icon-69539.png" width="200"/>
