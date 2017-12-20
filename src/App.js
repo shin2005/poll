@@ -4,11 +4,13 @@ import { getVote, postVote } from "./redux/actions/VoteActions";
 import ProgressBar from "./components/ProgressBar";
 import VoteOptions from "./components/VoteOptions";
 import "./App.css";
+import SignInModal from "./components/SignInModal";
 
 class App extends Component {
   state = {
     votedItem: null,
-    polls: []
+    polls: [],
+    modalIsOpen: false
   };
 
   componentWillMount() {
@@ -18,7 +20,7 @@ class App extends Component {
 
   render() {
     const { votes } = this.props;
-    const { polls, votedItem } = this.state;
+    const { polls, votedItem, modalIsOpen } = this.state;
     return (
       <div className="App">
         <div className="topnav" id="myTopnav">
@@ -27,10 +29,9 @@ class App extends Component {
           <a href="top10">Top 10</a>
           <a href="editors choice">Editor`s Choice</a>
           <a href="settings">Settings</a>
+          <a href="temp">temporary</a>
         </div>
-        <h1 
-          className="h1appjs"
-            align="center" id="first_h1">
+        <h1 className="h1appjs" align="center" id="first_h1">
           This is a website for making polls and voting for them!
         </h1>
         <h2 align="center">Today's poll!</h2>
@@ -45,11 +46,21 @@ class App extends Component {
           votedItem={votedItem}
         />
         <ProgressBar votes={votes} />
+        <button className="login" onClick={this.login}>
+          link the login code to here
+        </button>
         <button className="create_poll" onClick={this.createPoll}>
           Create New Poll(Under Construction)
         </button>
         {polls.map((poll, index) => <p key={index + poll}>{poll}</p>)}
-        <img src="http://www.free-icons-download.net/images/tick-pencil-icon-69539.png" width="200"/>
+        <img
+          src="http://www.free-icons-download.net/images/tick-pencil-icon-69539.png"
+          width="200"
+        />
+        <SignInModal
+          isOpen={modalIsOpen}
+          onClose={() => this.setState({ modalIsOpen: false })}
+        />
       </div>
     );
   }
@@ -62,13 +73,16 @@ class App extends Component {
     alert(`Your vote has been submitted! You voted ${votedItem}`);
   };
 
-  createPoll = async event => {
+  createPoll = event => {
     event.preventDefault();
     this.setState(state => ({
       polls: state.polls.concat(["New Poll placeholder"])
     }));
   };
- 
+
+  login = event => {
+    this.setState({ modalIsOpen: true });
+  };
 }
 
 export default connect(state => ({ votes: state.VoteReducer.votes }), {
