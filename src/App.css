@@ -37,6 +37,22 @@ body {
 .create_poll:hover {
   background: #979797;
 }
+
+.login {
+  background: #ffffff;
+  padding: 13px 26px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  color: #000000;
+  font-size: 24px;
+  font-family: helvetica, serif;
+  text-decoration: none;
+  vertical-align: middle;
+}
+.login:hover {
+  background: #979797;
+}
+
 .topnav {
   background-color: rgb(53, 53, 53);
   overflow: hidden;
