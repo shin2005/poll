@@ -4,13 +4,13 @@
 }
 
 h3{
-  color: black;
-  background-color:white;
+  color: rgb(195, 0, 255);
+  background-color:rgb(0, 212, 240);
 }
 
 h1 {
-  color: black;
-  background-color:white;
+  color: rgb(0, 183, 255);
+  background-color:rgb(6, 40, 233);
 }
 
 label{
@@ -56,4 +56,19 @@ body {
 .topnav a:hover {
   background-color: #ddd;
   color: black;
+}
+.h1appjs {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  transition-timing-function: ease;
+  transition-property: sliding-vertically;
+}
+.h1appjs {
+  font-size: 14px;
+  transition-property: font-size;
+  transition-duration: 2s;
+  transition-delay: 0s;
+}
+
+.h1appjs:hover {
+  font-size: 36px;
 }
