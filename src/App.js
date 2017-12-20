@@ -55,7 +55,7 @@ class App extends Component {
     const {votedItem} = this.state
     const {postVote} = this.props
     await postVote(votedItem)
-    alert(`Your vote was submitted! You voted ${votedItem}`)
+    alert(`Your vote has been submitted! You voted ${votedItem}`)
   }
 
   createPoll = async(event) => {
