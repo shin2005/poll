@@ -1,26 +1,16 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { getVote, postVote } from "./redux/actions/VoteActions";
-import ProgressBar from "./components/ProgressBar";
-import VoteOptions from "./components/VoteOptions";
-import "./App.css";
-import SignInModal from "./components/SignInModal";
+import React, { Component } from 'react';
+import Poll from './containers/Poll';
+import './App.css';
+import SignInModal from './components/SignInModal';
 
-class App extends Component {
+export default class App extends Component {
   state = {
-    votedItem: null,
     polls: [],
     modalIsOpen: false
   };
 
-  componentWillMount() {
-    const { getVote } = this.props;
-    getVote("favorite_js_lib");
-  }
-
   render() {
-    const { votes } = this.props;
-    const { polls, votedItem, modalIsOpen } = this.state;
+    const { polls, modalIsOpen } = this.state;
     return (
       <div className="App">
         <div className="topnav" id="myTopnav">
@@ -35,25 +25,22 @@ class App extends Component {
           This is a website for making polls and voting for them!
         </h1>
         <h2 align="center">Today's poll!</h2>
-        <VoteOptions
-          handleVote={this.handleVote}
-          onClickMooTools={() => this.setState({ votedItem: "Mootools" })}
-          onClickProtoType={() => this.setState({ votedItem: "Prototype" })}
-          onClickJQ={() => this.setState({ votedItem: "JQ" })}
-          onClickSpry={() => this.setState({ votedItem: "Spry" })}
-          onClickReact={() => this.setState({ votedItem: "React" })}
-          onClickOther={() => this.setState({ votedItem: "Other" })}
-          votedItem={votedItem}
-        />
-        <ProgressBar votes={votes} />
-        <button className="login" onClick={this.login}>
-          link the login code to here
-        </button>
-        <button className="create_poll" onClick={this.createPoll}>
-          Create New Poll(Under Construction)
-        </button>
+        <Poll />
+        <div style={{ marginTop: '1rem' }}>
+          <div>
+            <button className="login" onClick={this.login}>
+              Login
+            </button>
+          </div>
+          <div>
+            <button className="create_poll" onClick={this.createPoll}>
+              Create New Poll(Under Construction)
+            </button>
+          </div>
+        </div>
         {polls.map((poll, index) => <p key={index + poll}>{poll}</p>)}
         <img
+          alt="edit"
           src="http://www.free-icons-download.net/images/tick-pencil-icon-69539.png"
           width="200"
         />
@@ -65,18 +52,10 @@ class App extends Component {
     );
   }
 
-  handleVote = async event => {
-    event.preventDefault();
-    const { votedItem } = this.state;
-    const { postVote } = this.props;
-    await postVote(votedItem);
-    alert(`Your vote has been submitted! You voted ${votedItem}`);
-  };
-
   createPoll = event => {
     event.preventDefault();
     this.setState(state => ({
-      polls: state.polls.concat(["New Poll placeholder"])
+      polls: state.polls.concat(['New Poll placeholder'])
     }));
   };
 
@@ -84,8 +63,3 @@ class App extends Component {
     this.setState({ modalIsOpen: true });
   };
 }
-
-export default connect(state => ({ votes: state.VoteReducer.votes }), {
-  getVote,
-  postVote
-})(App);
