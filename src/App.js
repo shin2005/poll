@@ -45,7 +45,7 @@ export default class App extends Component {
           width="200"
         />
         <div style={{ display: "flex", justifyContent: "center" }}>
-          © The LOLPOLL Company.Inc.
+          © The LOLPOLL Company Inc.
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           All rights reserved.
