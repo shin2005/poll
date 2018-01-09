@@ -19,7 +19,6 @@ export default class App extends Component {
           <a href="top10">Top 10</a>
           <a href="editors choice">Editor`s Choice</a>
           <a href="settings">Settings</a>
-          <a href="temp">temporary</a>
         </div>
         <h1 className="h1appjs" align="center" id="first_h1">
           This is a website for making polls and voting for them!
