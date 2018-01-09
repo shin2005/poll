@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Poll from './containers/Poll';
-import './App.css';
-import SignInModal from './components/SignInModal';
+import React, { Component } from "react";
+import Poll from "./containers/Poll";
+import "./App.css";
+import SignInModal from "./components/SignInModal";
 
 export default class App extends Component {
   state = {
@@ -26,7 +26,7 @@ export default class App extends Component {
         </h1>
         <h2 align="center">Today's poll!</h2>
         <Poll />
-        <div style={{ marginTop: '1rem' }}>
+        <div style={{ marginTop: "1rem" }}>
           <div>
             <button className="login" onClick={this.login}>
               Login
@@ -44,8 +44,12 @@ export default class App extends Component {
           src="http://www.free-icons-download.net/images/tick-pencil-icon-69539.png"
           width="200"
         />
-        <div style="display: flex; justify-content: center;">© The LOLPOLL Company.Inc.</div>
-        <div style="display: flex; justify-content: center;">All rights reserved.</div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          © The LOLPOLL Company.Inc.
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          All rights reserved.
+        </div>
         <SignInModal
           isOpen={modalIsOpen}
           onClose={() => this.setState({ modalIsOpen: false })}
@@ -57,7 +61,7 @@ export default class App extends Component {
   createPoll = event => {
     event.preventDefault();
     this.setState(state => ({
-      polls: state.polls.concat(['New Poll placeholder'])
+      polls: state.polls.concat(["New Poll placeholder"])
     }));
   };
 
