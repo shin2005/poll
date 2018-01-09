@@ -44,6 +44,8 @@ export default class App extends Component {
           src="http://www.free-icons-download.net/images/tick-pencil-icon-69539.png"
           width="200"
         />
+        <div style="display: flex; justify-content: center;">© The LOLPOLL Company.Inc.</div>
+        <div style="display: flex; justify-content: center;">All rights reserved.</div>
         <SignInModal
           isOpen={modalIsOpen}
           onClose={() => this.setState({ modalIsOpen: false })}
