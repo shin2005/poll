@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const VoteSchema = new Schema({
@@ -10,8 +10,8 @@ const VoteSchema = new Schema({
     type: String,
     required: true
   }
-})
+});
 
-const Vote = mongoose.model('vote', VoteSchema)
+const Vote = mongoose.model("vote", VoteSchema);
 
 module.exports = Vote;

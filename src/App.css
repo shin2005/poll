@@ -1,23 +1,22 @@
 .Twin-kle {
   color: rgba(54, 0, 29, 0.219);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-h3{
+h3 {
   color: black;
-  background-color:white;
+  background-color: white;
 }
 
 h1 {
   color: black;
-  background-color:white;
+  background-color: white;
 }
 
-*{
-
-} 
-label{
-  color: rgb(0, 0, 0)
+* {
+}
+label {
+  color: rgb(0, 0, 0);
 }
 
 body {
