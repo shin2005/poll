@@ -3,16 +3,6 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-h3{
-  color: rgb(195, 0, 255);
-  background-color:rgb(0, 212, 240);
-}
-
-h1 {
-  color: rgb(0, 183, 255);
-  background-color:rgb(6, 40, 233);
-}
-
 label{
   color: rgb(0, 0, 0)
 }
@@ -23,42 +13,11 @@ body {
   background-color: white;
 }
 
-.create_poll {
-  background: #ffffff;
-  padding: 13px 26px;
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
-  color: #000000;
-  font-size: 24px;
-  font-family: helvetica, serif;
-  text-decoration: none;
-  vertical-align: middle;
-}
-.create_poll:hover {
-  background: #979797;
-}
-
-.login {
-  background: #ffffff;
-  padding: 13px 26px;
-  border-radius: 30px;
-  -webkit-border-radius: 30px;
-  color: #000000;
-  font-size: 24px;
-  font-family: helvetica, serif;
-  text-decoration: none;
-  vertical-align: middle;
-}
-.login:hover {
-  background: #979797;
-}
-
 .topnav {
   background-color: rgb(53, 53, 53);
   overflow: hidden;
 }
 
-/* Style the links inside the navigation bar */
 .topnav a {
   float: left;
   color: #ffffff;
@@ -68,23 +27,7 @@ body {
   font-size: 17px;
 }
 
-/* Change the color of links on hover */
 .topnav a:hover {
   background-color: #ddd;
   color: black;
-}
-.h1appjs {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  transition-timing-function: ease;
-  transition-property: sliding-vertically;
-}
-.h1appjs {
-  font-size: 14px;
-  transition-property: font-size;
-  transition-duration: 2s;
-  transition-delay: 0s;
-}
-
-.h1appjs:hover {
-  font-size: 36px;
 }
