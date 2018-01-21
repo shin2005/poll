@@ -12,7 +12,7 @@ export default function Header() {
     >
       <div>
         <Link to="/">Home</Link>
-        <Link to="/resources">resources</Link>
+        <Link to="/resources">Resources</Link>
       </div>
       <div>
         <a href="login">Log In / Sign Up</a>
