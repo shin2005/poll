@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import Poll from './Poll';
 import URL from '../../constants/URL';
 import request from 'axios';
+import { Switch, Route } from 'react-router-dom';
+import Home from './Home';
+import NotFound from './NotFound';
+import Resources from './Resources/index';
 
 export default class Body extends Component {
   async componentDidMount() {
@@ -10,41 +13,6 @@ export default class Body extends Component {
   }
 
   render() {
-    const polls = [
-      {
-        id: 1,
-        title: 'This is a sample poll',
-        options: [
-          { id: 1, label: 'Data 1', value: 20, color: 'red' },
-          { id: 2, label: 'Data 2', value: 60, color: 'yellow' },
-          { id: 3, label: 'Data 3', value: 30, color: 'orange' },
-          { id: 4, label: 'Data 4', value: 20, color: 'blue' },
-          { id: 5, label: 'Data 5', value: 10, color: 'green' }
-        ]
-      },
-      {
-        id: 2,
-        title: 'This is a sample poll',
-        options: [
-          { id: 1, label: 'Data 1', value: 20, color: 'red' },
-          { id: 2, label: 'Data 2', value: 60, color: 'yellow' },
-          { id: 3, label: 'Data 3', value: 30, color: 'orange' },
-          { id: 4, label: 'Data 4', value: 20, color: 'blue' },
-          { id: 5, label: 'Data 5', value: 10, color: 'green' }
-        ]
-      },
-      {
-        id: 3,
-        title: 'This is a sample poll',
-        options: [
-          { id: 1, label: 'Data 1', value: 20, color: 'red' },
-          { id: 2, label: 'Data 2', value: 60, color: 'yellow' },
-          { id: 3, label: 'Data 3', value: 30, color: 'orange' },
-          { id: 4, label: 'Data 4', value: 20, color: 'blue' },
-          { id: 5, label: 'Data 5', value: 10, color: 'green' }
-        ]
-      }
-    ];
     return (
       <div
         style={{
@@ -53,11 +21,11 @@ export default class Body extends Component {
           justifyContent: 'center'
         }}
       >
-        <div style={{ width: '80%' }}>
-          {polls.map(poll => {
-            return <Poll key={poll.id} poll={poll} />;
-          })}
-        </div>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/resources" component={Resources} />
+          <Route component={NotFound} />
+        </Switch>
       </div>
     );
   }
