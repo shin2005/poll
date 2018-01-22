@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './containers/Header'
+import Header from './containers/Header';
 import Body from './containers/Body';
 import Footer from './containers/Footer';
 import './App.css';
@@ -14,7 +14,7 @@ export default class App extends Component {
     const { modalIsOpen } = this.state;
     return (
       <div className="App">
-        <Header />
+        <Header onSignInClick={() => this.setState({ modalIsOpen: true })} />
         <Body />
         <Footer />
         <SignInModal

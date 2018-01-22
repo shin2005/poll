@@ -31,3 +31,19 @@ body {
   background-color: #ddd;
   color: black;
 }
+
+.signin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.signin span {
+  padding: 0 1rem;
+  color: #fff;
+}
+
+.signin span:hover {
+  color: #fff067
+}
