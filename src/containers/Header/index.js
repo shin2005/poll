@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Header({ onSignInClick }) {
+export default function Header({ onSignInClick, username }) {
   return (
     <div
       className="topnav"
@@ -14,9 +14,12 @@ export default function Header({ onSignInClick }) {
         <Link to="/">Home</Link>
         <Link to="/resources">Resources</Link>
       </div>
-      <div className="signin" onClick={onSignInClick}>
-        <span>Log In / Sign Up</span>
-      </div>
+      {username && <Link to={`/${username}`}>{username}</Link>}
+      {!username && (
+        <div className="signin" onClick={onSignInClick}>
+          <span>Log In / Sign Up</span>
+        </div>
+      )}
     </div>
   );
 }

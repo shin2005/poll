@@ -4,24 +4,77 @@ import Body from './containers/Body';
 import Footer from './containers/Footer';
 import './App.css';
 import SignInModal from './components/SignInModal';
+import URL from './constants/URL';
+import request from 'axios';
 
 export default class App extends Component {
   state = {
+    userId: null,
+    username: '',
     modalIsOpen: false
   };
 
+  async componentWillMount() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const { data: { userId, username } } = await request.get(
+          `${URL}/user/session`,
+          {
+            headers: {
+              authorization: token
+            }
+          }
+        );
+        this.setState({ userId, username });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+
   render() {
-    const { modalIsOpen } = this.state;
+    const { modalIsOpen, username } = this.state;
     return (
       <div className="App">
-        <Header onSignInClick={() => this.setState({ modalIsOpen: true })} />
+        <Header
+          username={username}
+          onSignInClick={() => this.setState({ modalIsOpen: true })}
+        />
         <Body />
         <Footer />
         <SignInModal
           isOpen={modalIsOpen}
           onClose={() => this.setState({ modalIsOpen: false })}
+          onSignUp={this.onSignUp}
+          onLogIn={this.onLogIn}
         />
       </div>
     );
   }
+
+  onSignUp = async ({ username, password }) => {
+    try {
+      const { data: { alreadyExists, token, userId } } = await request.post(
+        `${URL}/user`,
+        {
+          username,
+          password
+        }
+      );
+      if (alreadyExists) return alert('User already exists');
+      localStorage.setItem('token', token);
+      this.setState({
+        userId,
+        username,
+        modalIsOpen: false
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  onLogIn = ({ username, password }) => {
+    console.log(username, password);
+  };
 }

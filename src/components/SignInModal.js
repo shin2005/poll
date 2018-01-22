@@ -15,7 +15,8 @@ export default class OptionModal extends Component {
   };
 
   render() {
-    const { onClose, isOpen } = this.props;
+    const { onClose, isOpen, onLogIn } = this.props;
+    const { signUp, login } = this.state;
     return (
       <Modal
         ariaHideApp={false}
@@ -61,10 +62,51 @@ export default class OptionModal extends Component {
             <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
               I am a new user
             </p>
-            <input type="text" placeholder="My Username" />
-            <input type="password" placeholder="Password" />
-            <input type="password" placeholder="Confirm Password" />
-            <button style={{ marginTop: '1.5rem' }}>Sign Up</button>
+            <input
+              type="text"
+              placeholder="My Username"
+              value={signUp.username}
+              onChange={event => {
+                event.persist();
+                this.setState(state => ({
+                  signUp: {
+                    ...state.signUp,
+                    username: event.target.value
+                  }
+                }));
+              }}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={signUp.password}
+              onChange={event => {
+                event.persist();
+                this.setState(state => ({
+                  signUp: {
+                    ...state.signUp,
+                    password: event.target.value
+                  }
+                }));
+              }}
+            />
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={signUp.passwordConfirm}
+              onChange={event => {
+                event.persist();
+                this.setState(state => ({
+                  signUp: {
+                    ...state.signUp,
+                    passwordConfirm: event.target.value
+                  }
+                }));
+              }}
+            />
+            <button style={{ marginTop: '1.5rem' }} onClick={this.onSignUp}>
+              Sign Up
+            </button>
           </div>
           <div
             style={{
@@ -76,12 +118,53 @@ export default class OptionModal extends Component {
             <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
               I am a returning user
             </p>
-            <input type="text" placeholder="My Username" />
-            <input type="password" placeholder="Password" />
-            <button style={{ marginTop: '1.5rem' }}>Log In</button>
+            <input
+              type="text"
+              placeholder="My Username"
+              value={login.username}
+              onChange={event => {
+                event.persist();
+                this.setState(state => ({
+                  login: {
+                    ...state.login,
+                    username: event.target.value
+                  }
+                }));
+              }}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={login.password}
+              onChange={event => {
+                event.persist();
+                this.setState(state => ({
+                  login: {
+                    ...state.login,
+                    password: event.target.value
+                  }
+                }));
+              }}
+            />
+            <button
+              style={{ marginTop: '1.5rem' }}
+              onClick={() => onLogIn(login)}
+            >
+              Log In
+            </button>
           </div>
         </div>
       </Modal>
     );
   }
+
+  onSignUp = () => {
+    const { onSignUp } = this.props;
+    const { signUp } = this.state;
+    if (signUp.password === signUp.passwordConfirm) {
+      onSignUp(signUp);
+    } else {
+      alert('Passwords do not match');
+    }
+  };
 }
