@@ -2,7 +2,16 @@ const express = require('express');
 const router = express.Router();
 const { poolQuery } = require('../helpers');
 const passwordHash = require('password-hash');
-const { requireAuth, tokenForUser } = require('../auth');
+const { requireAuth, requireSignin, tokenForUser } = require('../auth');
+
+router.get('/', requireSignin, async (req, res) => {
+  const { user } = req;
+  res.send({
+    token: tokenForUser(user.id),
+    userId: user.id,
+    username: user.username
+  });
+});
 
 router.post('/', async (req, res) => {
   const { username, password } = req.body;

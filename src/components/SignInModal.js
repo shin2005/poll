@@ -52,12 +52,14 @@ export default class OptionModal extends Component {
             justifyContent: 'space-around'
           }}
         >
-          <div
+          <form
             style={{
               display: 'flex',
               width: '45%',
               flexDirection: 'column'
             }}
+            autoComplete="new-password"
+            onSubmit={this.onSignUp}
           >
             <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
               I am a new user
@@ -65,6 +67,7 @@ export default class OptionModal extends Component {
             <input
               type="text"
               placeholder="My Username"
+              autoComplete="off"
               value={signUp.username}
               onChange={event => {
                 event.persist();
@@ -104,15 +107,17 @@ export default class OptionModal extends Component {
                 }));
               }}
             />
-            <button style={{ marginTop: '1.5rem' }} onClick={this.onSignUp}>
-              Sign Up
-            </button>
-          </div>
-          <div
+            <button style={{ marginTop: '1.5rem' }}>Sign Up</button>
+          </form>
+          <form
             style={{
               display: 'flex',
               width: '45%',
               flexDirection: 'column'
+            }}
+            onSubmit={event => {
+              event.preventDefault();
+              onLogIn(login);
             }}
           >
             <p style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>
@@ -146,19 +151,15 @@ export default class OptionModal extends Component {
                 }));
               }}
             />
-            <button
-              style={{ marginTop: '1.5rem' }}
-              onClick={() => onLogIn(login)}
-            >
-              Log In
-            </button>
-          </div>
+            <button style={{ marginTop: '1.5rem' }}>Log In</button>
+          </form>
         </div>
       </Modal>
     );
   }
 
-  onSignUp = () => {
+  onSignUp = (event) => {
+    event.preventDefault()
     const { onSignUp } = this.props;
     const { signUp } = this.state;
     if (signUp.password === signUp.passwordConfirm) {

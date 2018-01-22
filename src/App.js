@@ -75,8 +75,20 @@ export default class App extends Component {
     }
   };
 
-  onLogIn = ({ username, password }) => {
-    console.log(username, password);
+  onLogIn = async ({ username, password }) => {
+    try {
+      const { data: { token, userId } } = await request.get(
+        `${URL}/user?username=${username}&password=${password}`
+      );
+      localStorage.setItem('token', token);
+      this.setState({
+        userId,
+        username,
+        modalIsOpen: false
+      })
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   onLogOut = () => {
@@ -84,6 +96,6 @@ export default class App extends Component {
     this.setState({
       userId: null,
       username: ''
-    })
-  }
+    });
+  };
 }
