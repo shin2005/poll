@@ -14,15 +14,16 @@ class UserMenu extends Component {
     return (
       <div
         style={{
-          width: '10rem',
           height: '49px',
           float: 'right',
-          marginRight: '0.5rem',
-          cursor: 'pointer'
+          cursor: 'pointer',
+          display: 'flex',
+          flexDirection: 'row-reverse'
         }}
       >
         <div
           style={{
+            paddingRight: '1.5rem',
             display: 'flex',
             height: '100%',
             alignItems: 'center',
@@ -36,25 +37,24 @@ class UserMenu extends Component {
         {dropDownShown && (
           <div
             style={{
-              color: '#bababa',
-              border: '1px solid #dddddd',
-              borderRightWidth: '4px',
-              borderBottomWidth: '4px',
-              borderTop: 'none',
-              width: '10rem',
-              textAlign: 'center',
-              marginTop: '4px',
-              padding: '0.5rem',
               position: 'absolute',
-              background: '#fff'
+              marginTop: '53px'
             }}
           >
-            Log Out
+            <div className="dropdown" onClick={this.onLogOut}>
+              Log Out
+            </div>
           </div>
         )}
       </div>
     );
   }
+
+  onLogOut = () => {
+    const { onLogOut } = this.props;
+    onLogOut()
+    this.setState({ dropDownShown: false });
+  };
 }
 
 export default onClickOutside(UserMenu);

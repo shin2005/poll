@@ -4,7 +4,7 @@ import UserMenu from './UserMenu';
 
 export default class Header extends Component {
   render() {
-    const { onSignInClick, username } = this.props;
+    const { onLogOut, onSignInClick, username } = this.props;
     return (
       <div
         className="topnav"
@@ -17,7 +17,7 @@ export default class Header extends Component {
           <Link to="/">Home</Link>
           <Link to="/resources">Resources</Link>
         </div>
-        {username && <UserMenu username={username} />}
+        {username && <UserMenu username={username} onLogOut={onLogOut} />}
         {!username && (
           <div className="signin" onClick={onSignInClick}>
             <span>Log In / Sign Up</span>

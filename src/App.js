@@ -39,6 +39,7 @@ export default class App extends Component {
       <div className="App">
         <Header
           username={username}
+          onLogOut={this.onLogOut}
           onSignInClick={() => this.setState({ modalIsOpen: true })}
         />
         <Body />
@@ -77,4 +78,12 @@ export default class App extends Component {
   onLogIn = ({ username, password }) => {
     console.log(username, password);
   };
+
+  onLogOut = () => {
+    localStorage.setItem('token', null);
+    this.setState({
+      userId: null,
+      username: ''
+    })
+  }
 }

@@ -3,14 +3,31 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-label{
-  color: rgb(0, 0, 0)
+label {
+  color: rgb(0, 0, 0);
 }
 
 body {
   margin: 0;
   padding: 0;
   background-color: white;
+}
+
+.dropdown {
+  color: #bababa;
+  border: 1px solid #dddddd;
+  border-right-width: 4px;
+  border-bottom-width: 4px;
+  border-top: none;
+  width: 10rem;
+  text-align: center;
+  padding: 0.5rem;
+  background: #fff;
+}
+
+.dropdown:hover {
+  color: #929292;
+  background: #f7f7f7;
 }
 
 .topnav {
@@ -45,5 +62,5 @@ body {
 }
 
 .signin span:hover {
-  color: #fff067
+  color: #fff067;
 }
