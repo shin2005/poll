@@ -92,7 +92,7 @@ export default class App extends Component {
   };
 
   onLogOut = () => {
-    localStorage.setItem('token', null);
+    localStorage.removeItem('token');
     this.setState({
       userId: null,
       username: ''
