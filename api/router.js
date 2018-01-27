@@ -1,4 +1,4 @@
 module.exports = function(app) {
-  app.use('/user', require('./controllers/user'));
-  app.use('/vote', require('./controllers/vote'));
+  app.use('/users', require('./controllers/users'));
+  app.use('/polls', require('./controllers/polls'));
 };

@@ -19,7 +19,7 @@ export default class App extends Component {
     if (token) {
       try {
         const { data: { userId, username } } = await request.get(
-          `${URL}/user/session`,
+          `${URL}/users/session`,
           {
             headers: {
               authorization: token
@@ -57,7 +57,7 @@ export default class App extends Component {
   onSignUp = async ({ username, password }) => {
     try {
       const { data: { alreadyExists, token, userId } } = await request.post(
-        `${URL}/user`,
+        `${URL}/users`,
         {
           username,
           password
@@ -78,7 +78,7 @@ export default class App extends Component {
   onLogIn = async ({ username, password }) => {
     try {
       const { data: { token, userId } } = await request.get(
-        `${URL}/user?username=${username}&password=${password}`
+        `${URL}/users?username=${username}&password=${password}`
       );
       localStorage.setItem('token', token);
       this.setState({

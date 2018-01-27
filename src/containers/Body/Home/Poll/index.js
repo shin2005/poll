@@ -4,11 +4,15 @@ import PieChart from 'react-minimal-pie-chart';
 
 export default class Poll extends Component {
   render() {
-    const {poll} = this.props
+    const { poll } = this.props;
     return (
       <div style={{ width: '100%', padding: '1rem' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <PieChart style={{ width: '30%' }} data={poll.options} />
+          {poll.noVotes ? (
+            <div style={{ width: '30%', textAlign: 'center' }}>No votes</div>
+          ) : (
+            <PieChart style={{ width: '30%' }} data={poll.options} />
+          )}
           <PollMenu
             style={{
               width: '70%',
@@ -22,4 +26,3 @@ export default class Poll extends Component {
     );
   }
 }
-

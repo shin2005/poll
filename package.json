@@ -26,7 +26,7 @@
   },
   "scripts": {
     "dev-api": "nodemon api/index.js",
-    "dev-content": "react-scripts start",
+    "dev-content": "BROWSER='Brave' react-scripts start",
     "api-server": "sudo forever -o api_out.log -e api_err.log start api/index.js",
     "stop-api": "sudo forever stop api/index.js",
     "build": "react-scripts build",
