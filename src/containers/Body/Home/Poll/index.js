@@ -15,6 +15,7 @@ export default class Poll extends Component {
           )}
           <PollMenu
             style={{
+              color: 'red',
               width: '70%',
               display: 'flex',
               justifyContent: 'center'
