@@ -30,7 +30,7 @@ export default function PollMenu({
           onClick={handleVote}
           className="submit_vote"
         >
-          Vote
+          Vote Here!
         </button>
       </div>
     </div>
