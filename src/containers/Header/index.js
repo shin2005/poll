@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import UserMenu from './UserMenu';
+import faviconyay from '../../img/faviconyay.png';
 
 export default class Header extends Component {
   render() {
@@ -14,7 +15,7 @@ export default class Header extends Component {
         }}
       >
         <div>
-          <Link to="/">Home</Link>
+          <Link to="/"> <img src={faviconyay} alt="Home"/> </Link>
           <Link to="/resources">Resources</Link>
         </div>
         {username && <UserMenu username={username} onLogOut={onLogOut} />}
