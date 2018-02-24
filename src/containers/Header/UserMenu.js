@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import onClickOutside from 'react-onclickoutside';
+import React, { Component } from "react";
+import onClickOutside from "react-onclickoutside";
 
 class UserMenu extends Component {
   state = {
@@ -14,21 +14,21 @@ class UserMenu extends Component {
     return (
       <div
         style={{
-          height: '49px',
-          float: 'right',
-          cursor: 'pointer',
-          display: 'flex',
-          flexDirection: 'row-reverse'
+          height: "49px",
+          float: "right",
+          cursor: "pointer",
+          display: "flex",
+          flexDirection: "row-reverse"
         }}
       >
         <div
           style={{
-            paddingRight: '1.5rem',
-            display: 'flex',
-            height: '100%',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#fff'
+            paddingRight: "1.5rem",
+            display: "flex",
+            height: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#fff"
           }}
           onClick={() => this.setState({ dropDownShown: true })}
         >
@@ -37,8 +37,8 @@ class UserMenu extends Component {
         {dropDownShown && (
           <div
             style={{
-              position: 'absolute',
-              marginTop: '53px'
+              position: "absolute",
+              marginTop: "53px"
             }}
           >
             <div className="dropdown" onClick={this.onLogOut}>
@@ -52,7 +52,7 @@ class UserMenu extends Component {
 
   onLogOut = () => {
     const { onLogOut } = this.props;
-    onLogOut()
+    onLogOut();
     this.setState({ dropDownShown: false });
   };
 }

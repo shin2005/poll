@@ -6,6 +6,8 @@ import './App.css';
 import SignInModal from './components/SignInModal';
 import URL from './constants/URL';
 import request from 'axios';
+import { css } from 'emotion'
+import PieChart from 'react-minimal-pie-chart';
 
 export default class App extends Component {
   state = {
