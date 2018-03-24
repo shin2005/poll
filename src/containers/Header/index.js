@@ -18,11 +18,10 @@ export default class Header extends Component {
       >
         <div>
           <Link to="/">
-            {" "}
-            <img src={faviconyay} alt="Home" style={{height : '1.49rem'}} />{" "}
+            <img src={faviconyay} alt="Home" />
           </Link>
-          <Link to="/resources">
-            resources
+          <Link to="/resources" style ={{margin : '0rem', padding : '0.96rem'}}>
+            Resources
           </Link>
         </div>
         {username && <UserMenu username={username} onLogOut={onLogOut} />}
