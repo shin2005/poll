@@ -4,7 +4,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "cors": "^2.8.4",
-    "emotion": "^9.0.1",
+    "emotion": "^9.1.0",
     "express": "^4.16.2",
     "jwt-simple": "^0.5.1",
     "morgan": "^1.9.0",

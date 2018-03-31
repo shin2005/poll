@@ -8,6 +8,7 @@ import URL from './constants/URL';
 import request from 'axios';
 import { css } from 'emotion'
 import PieChart from 'react-minimal-pie-chart';
+import auth from './constants/auth'
 
 export default class App extends Component {
   state = {
@@ -17,16 +18,11 @@ export default class App extends Component {
   };
 
   async componentWillMount() {
-    const token = localStorage.getItem('token');
-    if (token) {
+    if (auth()) {
       try {
         const { data: { userId, username } } = await request.get(
           `${URL}/users/session`,
-          {
-            headers: {
-              authorization: token
-            }
-          }
+          auth()
         );
         this.setState({ userId, username });
       } catch (error) {

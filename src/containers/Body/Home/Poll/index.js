@@ -4,7 +4,7 @@ import PieChart from 'react-minimal-pie-chart';
 
 export default class Poll extends Component {
   render() {
-    const { poll } = this.props;
+    const { poll, handleVote } = this.props;
     return (
       <div style={{ width: '100%', padding: '1rem' }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -19,6 +19,7 @@ export default class Poll extends Component {
               display: 'flex',
               justifyContent: 'center'
             }}
+            handleVote={handleVote}
             poll={poll}
           />
         </div>
