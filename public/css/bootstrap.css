@@ -3627,7 +3627,8 @@ tbody.collapse.show {
 }
 
 .navbar-brand:focus, .navbar-brand:hover {
-  text-decoration: none;
+  background-color: transparent;
+  color: #212529;
 }
 
 .navbar-nav {
@@ -3678,6 +3679,10 @@ tbody.collapse.show {
   text-decoration: none;
 }
 
+.navbar-inverse , .navbar-inverse{
+  background-color: transparent;
+  color: #212529;
+}
 .navbar-toggler-icon {
   display: inline-block;
   width: 1.5em;
